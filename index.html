@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ShopBoard — browse products and create an account." />
+    <title>ShopBoard — Simple Online Shop</title>
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="logo" href="/">ShopBoard</a>
+      <nav aria-label="Main">
+        <ul class="nav-list">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#register">Register</a></li>
+          <li>
+            <a class="cart-link" href="#cart">
+              Cart <span class="cart-badge" id="cart-count">0</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="hero" class="hero" aria-labelledby="hero-title">
+        <h1 id="hero-title">Everything you need, in one board</h1>
+        <p>Simple products, fair prices, fast delivery.</p>
+        <a class="button" href="#products">Browse products</a>
+      </section>
+
+      <section id="products" aria-labelledby="products-title">
+        <h2 id="products-title">Products</h2>
+        <form class="controls" role="search" aria-label="Filter products">
+          <div class="field">
+            <label for="search">Search</label>
+            <input
+              id="search"
+              name="search"
+              type="search"
+              placeholder="e.g. bag"
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="field">
+            <label for="category">Category</label>
+            <select id="category" name="category">
+              <option value="all">All</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="sort">Sort</label>
+            <select id="sort" name="sort">
+              <option value="default">Default</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+            </select>
+          </div>
+        </form>
+
+        <p id="results-count" aria-live="polite"></p>
+        <div class="product-grid" id="product-grid"></div>
+      </section>
+
+      <section id="cart" aria-labelledby="cart-title">
+        <h2 id="cart-title">Your cart</h2>
+        <ul class="cart-list" id="cart-list"></ul>
+        <p class="cart-empty" id="cart-empty">Your cart is empty.</p>
+        <div class="cart-summary">
+          <p>
+            Items: <strong id="cart-items">0</strong> · Total:
+            <strong id="cart-total">$0</strong>
+          </p>
+          <button type="button" class="button-secondary" id="cart-clear">Clear cart</button>
+        </div>
+      </section>
+
+      <section id="register" aria-labelledby="register-title">
+        <h2 id="register-title">Create an account</h2>
+        <form class="register-form" id="register-form">
+          <div class="field">
+            <label for="full-name">Full name</label>
+            <input
+              id="full-name"
+              name="fullName"
+              type="text"
+              autocomplete="name"
+              required
+              minlength="2"
+            />
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              autocomplete="new-password"
+              required
+              minlength="8"
+              aria-describedby="password-hint"
+            />
+            <small id="password-hint">At least 8 characters.</small>
+          </div>
+
+          <div class="field field-inline">
+            <input id="terms" name="terms" type="checkbox" required />
+            <label for="terms">I accept the terms</label>
+          </div>
+
+          <button type="submit">Register</button>
+        </form>
+        <p class="register-message" id="register-message" role="status"></p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 ShopBoard</p>
+    </footer>
+  </body>
+</html>
