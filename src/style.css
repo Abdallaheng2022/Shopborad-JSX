@@ -407,7 +407,7 @@ select:focus-visible {
 }
 
 /* Show the error state only after the user has typed something. */
-input:user-invalid {
+input:not([type='checkbox']):user-invalid {
   border-color: var(--error);
 }
 
