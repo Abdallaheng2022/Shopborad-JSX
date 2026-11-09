@@ -1,0 +1,4 @@
+#!/bin/sh
+# Runs before every commit. If any check fails, the commit is blocked.
+echo "pre-commit: running npm run check..."
+npm run check
